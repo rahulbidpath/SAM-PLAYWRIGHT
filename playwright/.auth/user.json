@@ -1,0 +1,55 @@
+{
+  "cookies": [
+    {
+      "name": "__cf_bm",
+      "value": "fF3ooo_.uYqhdQDmIcVnYI6.3sKocDffiqWtzz6f3Wg-1711625388-1.0.1.1-QpZylkFhfcXh9yfEeQq9Ghpz0ZnBwwe226sQXvmVBdXgwLopEDXvSmlamYLdYpzXXcCwiClWpnUPBdLljdzZXw",
+      "domain": ".auctionserver.net",
+      "path": "/",
+      "expires": 1711627189.805595,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "JwtAuth",
+      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTE2MjUzOTIuNzc2MjE4LCJleHAiOjE3MTE2MjU2OTIuNzc2MjE4LCJuYmYiOjE3MTE2MjUzOTIuNzc2MjE4LCJ1aWQiOjEsInBjciI6ZmFsc2V9.e1SQo0_VUjL-EZJV-NRCBJUxcg3HOsk79JMlIZ7C5Cw",
+      "domain": "qa-dev-auto.auctionserver.net",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "Authenticated",
+      "value": "1",
+      "domain": "qa-dev-auto.auctionserver.net",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "PHPSESSID",
+      "value": "fq46rrjootvtmibttljlm6j61v",
+      "domain": "qa-dev-auto.auctionserver.net",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "cf_clearance",
+      "value": "uOup95u_RRhy9GGQvZsC.vngorsRof2zxoZAWU0s3bM-1711625396-1.0.1.1-Oxh1CUPy6zFRaCGsibDG31o37XXt7jx_vpgy6UxTymp1bIiCzm1RhWBor0JkbaIb65PTWAYDh91Cs_TQWOCZpg",
+      "domain": ".auctionserver.net",
+      "path": "/",
+      "expires": 1743161398.082823,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    }
+  ],
+  "origins": []
+}
