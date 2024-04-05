@@ -1,14 +1,14 @@
 import { Page, Locator } from '@playwright/test';
 
 export class Loginpage{
-
+   
     private username: Locator;
     private password: Locator;
     private loginButton: Locator;
     private siteLogoImage: Locator;
     static PAGE_URL: string= "admin/login";
 
-    constructor(public page: Page) {
+    constructor(public page: Page) {                                                                                                                                                                                                                                
         this.page = page;
         this.username = this.page.locator("xpath=//input[@id='usr']");
         this.password = this.page.locator("xpath=//input[@id='pas']");
@@ -44,9 +44,13 @@ export class Loginpage{
 
     async loginAsAdmin(username: string, password: string) : Promise<void> {
         await this.username.fill(username);
+        console.log("UserName:" + username);
         await this.password.fill(password);
+        console.log("PassWord:" +password);
         await this.loginButton.click();
+        console.log("Login Successfully");
         await this.page.waitForLoadState();
     }
 }
 
+                                                                                                

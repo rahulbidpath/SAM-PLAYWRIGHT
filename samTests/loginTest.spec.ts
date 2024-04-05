@@ -12,13 +12,13 @@ test.describe('Login Page Tests', () => {
         await loginpage.loginAsAdmin("admin", "123123");
         console.log("Logged into system as 'sam'");
         await page.context().storageState({path: auth_file_path});
-        console.log("saved current session");
+        console.log("Saved current session");
     })
 
     test("Verify on Login Page", async({page}) =>{
         var loginpage = new Loginpage(page);
         page.context().clearCookies();
-        await test.step("Open sam Lofin Screen", async () =>{
+        await test.step("Open sam Login Screen", async () =>{
             await loginpage.navigateToPage();
             expect(loginpage.getUserNameTextfield()).toBeVisible();
             expect(loginpage.getPassWordTextfield()).toBeVisible();
