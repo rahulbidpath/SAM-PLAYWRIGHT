@@ -1,4 +1,4 @@
-import { Page, Locator } from '@playwright/test';
+import { Page, Locator, test } from '@playwright/test';
 
 export class Loginpage{
    
@@ -35,7 +35,7 @@ export class Loginpage{
     isPageOpen() : boolean {
         return this.page.url().indexOf("admin/login/") > 0;
     }
-
+    
     async navigateToPage() : Promise<void> {
         if (!await this.isPageOpen()) {
             await this.page.goto(Loginpage.PAGE_URL);
@@ -43,14 +43,28 @@ export class Loginpage{
     }
 
     async loginAsAdmin(username: string, password: string) : Promise<void> {
-        await this.username.fill(username);
-        console.log("UserName:" + username);
-        await this.password.fill(password);
-        console.log("PassWord:" +password);
-        await this.loginButton.click();
-        console.log("Login Successfully");
-        await this.page.waitForLoadState();
-    }
-}
+        await test.step("Verify Login Scenario", async () =>{
+            
+            await test.step("Enter Username", async () =>{
+                await this.username.fill(username);
+                console.log("Enter Username:" + username);
+            }); 
+            await test.step("Enter PassWord", async () =>{
+                await this.password.fill(password);
+                console.log("Enter PassWord:" + password);
+            }); 
+
+            await test.step("Click On Login Button", async () =>{
+                await this.loginButton.click();
+                console.log("Click On Login Button");
+            }); 
+            
+            await test.step("User should be sucessfully logged in", async () =>{
+                await this.page.waitForLoadState();
+                console.log("User should be sucessfully logged in");
+            }); 
+        });           
+    };
+};
 
                                                                                                 

@@ -1,5 +1,5 @@
 import {test, expect} from '@playwright/test';
-import { Loginpage } from '../samPages/Loginpage';
+import { Loginpage } from '../samPages/LoginPage';
 
 test.describe('Login Page Tests', () => {
     
