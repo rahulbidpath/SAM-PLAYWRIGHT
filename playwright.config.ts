@@ -27,19 +27,17 @@ export default defineConfig({
     headless: false,
     actionTimeout: 30000,
     navigationTimeout: 30000,
-    browserName: 'chromium',
     channel: 'chrome',
   },
   globalSetup: require.resolve('./global-setup'),
   projects: [
     {
-      name: 'SmokeTests',
-      testDir: './sanmTests/smokeTests',
+      name: 'smokeTests',
+      testDir: './samTests/smokeTests'
     },
     {
-      name: 'RegressionTests',
-      testDir: './samTests/regressionTests',
+      name: 'regressionTests',
+      testDir: './samTests/regressionTests'
     },
-
   ],
 });

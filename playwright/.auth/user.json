@@ -2,17 +2,27 @@
   "cookies": [
     {
       "name": "__cf_bm",
-      "value": "PmUa7O6dGQA.iO9cvVVmv4ZfywyE_pRmLB60COZHLBE-1712051505-1.0.1.1-eR0yGp4fppMm_HBq8CLYyovdy6Dsa.pRoQ7.pqvdPIYjoZnE0zixBKyvdSXCyYdluGRAzmRjT0Xp7rlREoo47g",
+      "value": "XpNPn9M72v27mv5x.gzfMA.OFPdbq.xiBXySMXXg0Ls-1713523776-1.0.1.1-L6vIU6fMV2onVMxbO9yV.NBillf9AAi.Xr0bkz7YZ_G8L5gU9nuZt_0HgWXrMDSF7aJXD1Ae4VTyWiLD4Fo0cA",
       "domain": ".auctionserver.net",
       "path": "/",
-      "expires": 1712053305.403338,
+      "expires": 1713525579.165225,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "cf_clearance",
+      "value": "u8fSCkc4eZoeuse_XMZ.cjcaUKNIoz9FRAQa9zZDt5M-1713523781-1.0.1.1-PDYcpSsnqLLQPW5mfKVlT91uXzt5r9DzdLV2sCyNlJ.nBzjwrKoAcMxjr83oSwPrDi0aa.U0TVRvwB2w9tPHSw",
+      "domain": ".auctionserver.net",
+      "path": "/",
+      "expires": 1745059783.399674,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "JwtAuth",
-      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTIwNTE1MDkuMzE4OTk1LCJleHAiOjE3MTIwNTE4MDkuMzE4OTk1LCJuYmYiOjE3MTIwNTE1MDkuMzE4OTk1LCJ1aWQiOjEsInBjciI6ZmFsc2V9.lZ4fSReWkt5crAGvRVsWYJXRILS8A6jYYx21IrHeIik",
+      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTM1MjM3ODEuNDA3MTc1LCJleHAiOjE3MTM1MjQwODEuNDA3MTc1LCJuYmYiOjE3MTM1MjM3ODEuNDA3MTc1LCJ1aWQiOjEsInBjciI6ZmFsc2V9.vZ-I-zLtMP-dw4Sw1AtOHxtpJWLpUxN0xcAYtgTRwk8",
       "domain": "qa-dev-auto.auctionserver.net",
       "path": "/",
       "expires": -1,
@@ -32,23 +42,13 @@
     },
     {
       "name": "PHPSESSID",
-      "value": "pfq709la0ipsan38e3k34ufg3c",
+      "value": "cphagouqaf6b1kct0iaqrhhbjv",
       "domain": "qa-dev-auto.auctionserver.net",
       "path": "/",
       "expires": -1,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
-    },
-    {
-      "name": "cf_clearance",
-      "value": "OmdH0Ufn11XR2yIwLNoNR.9iRd159J.skYrtuLVU2Ig-1712051513-1.0.1.1-tdOhsB8jsBQ.L4Fy7hXmNfZClTgFoKNMYplR_kSE8RO6ErYCOConU.YAn7WoeNTaCUlfF.ImwEtCngsoX5an_A",
-      "domain": ".auctionserver.net",
-      "path": "/",
-      "expires": 1743587513.217655,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "None"
     }
   ],
   "origins": []

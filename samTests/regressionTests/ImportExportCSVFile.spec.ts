@@ -1,13 +1,13 @@
 import {Page, test, expect} from '@playwright/test';
-import { Loginpage } from '../samPages/LoginPage';
-import { Homepage } from '../samPages/HomePage';
-import { CreateAuction } from '../samPages/CreateAuctionPage';
-import { LotPage } from '../samPages/AddLotsPage';
-import { AddBidders } from '../samPages/AddBiddersPage';
-import { EnterBid} from '../samPages/EnterBidPage';
-import { Reports } from '../samPages/ReportsPage';
+import { Loginpage } from '../../samPages/LoginPage';
+import { Homepage } from '../../samPages/HomePage';
+import { CreateAuction } from '../../samPages/CreateAuctionPage';
+import { LotPage } from '../../samPages/AddLotsPage';
+import { AddBidders } from '../../samPages/AddBiddersPage';
+import { EnterBid} from '../../samPages/EnterBidPage';
+import { Reports } from '../../samPages/ReportsPage';
 
-test.describe('Import Export CSV File', () => {
+test.describe('Import Export CSV File Test', () => {
     let page: Page;
     let loginpage: Loginpage;
     let homepage : Homepage;
