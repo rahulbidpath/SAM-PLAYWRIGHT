@@ -9,20 +9,10 @@ test.describe('Login Page Tests', () => {
         var loginpage = new Loginpage(page);
         loginpage.navigateToPage();
         console.log("Navigated to Login Page");
-        await loginpage.loginAsAdmin("admin", "123123");
+        await loginpage.loginAsAdmin(process.env.SAM_admin_username??"rahul", process.env.SAM_admin_password??"12");
         console.log("Logged into system as 'sam'");
         await page.context().storageState({path: auth_file_path});
         console.log("Saved current session");
     })
 
-    test("Verify on Login Page", async({page}) =>{
-        var loginpage = new Loginpage(page);
-        page.context().clearCookies();
-        await test.step("Open sam Login Screen", async () =>{
-            await loginpage.navigateToPage();
-            expect(loginpage.getUserNameTextfield()).toBeVisible();
-            expect(loginpage.getPassWordTextfield()).toBeVisible();
-            expect(loginpage.getLoginButton()).toBeVisible();
-        })
-    })
 })

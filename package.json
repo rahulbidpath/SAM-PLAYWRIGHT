@@ -17,6 +17,7 @@
   "dependencies": {
     "csv-parser": "^3.0.0",
     "csv-writer": "^1.6.0",
-    "monocart-reporter": "^1.7.13"
+    "monocart-reporter": "^1.7.13",
+    "node-fetch": "^3.3.2"
   }
 }

@@ -13,19 +13,19 @@ test.describe('Import Export CSV File Test', () => {
     let homepage : Homepage;
     let createAuctionPage: CreateAuction;
     let lotpage : LotPage;
-    let addbidders : AddBidders;
-    let enterbid : EnterBid;
-    let reports : Reports;
+    let AddBiddersPage : AddBidders;
+    let EnterBidPage : EnterBid;
+    let ReportsPage : Reports;
     
     test.beforeEach(async ({ page }) => {
         loginpage = new Loginpage(page);
+        await loginpage.navigateToPage();               
         homepage = new Homepage(page);
         createAuctionPage = new CreateAuction(page);
-        await loginpage.navigateToPage();               
         lotpage = new LotPage(page);
-        addbidders = new AddBidders(page);
-        enterbid = new EnterBid(page); 
-        reports = new Reports(page, '..\\SAM-PLAYWRIGHT\\Download\\');   
+        AddBiddersPage = new AddBidders(page);
+        EnterBidPage = new EnterBid(page); 
+        ReportsPage = new Reports(page, '..\\SAM-PLAYWRIGHT\\Download\\');   
     });
 
     test('"Import ready csv export” → re-upload using lots “Quick Import” works as expected', async ({page}) => {
@@ -34,24 +34,28 @@ test.describe('Import Export CSV File Test', () => {
 
             //navigate to home page
         await homepage.home_page();
+        
 
             //create auction
-        await createAuctionPage.create_Auctions('Live','date' ,'name');
+        const createmessage =await createAuctionPage.create_Auctions('Live');
+        expect(createmessage).toContain('Success Auction saved');
 
             //add lots
-        await lotpage.add_Lots("2","200");
-
+        const savemessage =await lotpage.add_Lots("2","200");
+        expect(savemessage).toContain('Success')
             //add bidders in auction
-        const bidderId = await addbidders.add_Bidders();
+        const bidderId = await AddBiddersPage.add_Bidders();
       
             //enter bid and sell lot
-        await enterbid.verify_Enter_Bid_And_Sell_Lot("1","300", bidderId);
+        const message =await EnterBidPage.verify_Enter_Bid_And_Sell_Lot("1","300", bidderId);
+        expect(message).toContain('successfully sold to bidder');
 
             //generate reports 
-        const filepath1 = await reports.generate_Reports();            
+        const filepath1 = await ReportsPage.generate_Reports();            
 
             //In Lot Section Add Lots Using CSV File Upload and Check Success Message
-        await lotpage.add_CSV_File_In_Quick_Import(filepath1);
+        const lotaddmessage =await lotpage.add_CSV_File_In_Quick_Import(filepath1);
+        expect(lotaddmessage).toContain('lots updated');
      });
 });
     

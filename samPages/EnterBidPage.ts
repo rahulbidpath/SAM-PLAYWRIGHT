@@ -21,6 +21,7 @@ export class EnterBid{
     }
     
     async verify_Enter_Bid_And_Sell_Lot(id: string, price: string, bidderid: string ): Promise<void> {
+        let message;
         await test.step("Enter In Bids Section and Enter Bid For Lot", async ()=>{
             await test.step("Enter In Bids Section", async () =>{
                 await this.enterbid.click();
@@ -43,9 +44,10 @@ export class EnterBid{
                 console.log('Click On Sell Lot Button');
             });
             await test.step("Show Message For Successfull Sell Lot For Biider", async () =>{    
-                const message = await this.successmessage.innerText();
+                message = await this.successmessage.innerText();
                 console.log('Message:' + message);
             });
         });
+        return message;
     };
 };

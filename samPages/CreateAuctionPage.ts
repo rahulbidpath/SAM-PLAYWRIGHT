@@ -1,4 +1,4 @@
-import { Page, Locator, test } from "@playwright/test";
+import { Page, Locator, test, expect } from "@playwright/test";
 
 export class CreateAuction {
     private page: Page;
@@ -27,7 +27,8 @@ export class CreateAuction {
         this.successCreateauctionmessage = this.page.locator("xpath=//p[@class='alert alert-success']");
     }
 
-    async create_Auctions(option: string, date: string, name: string): Promise<void>{
+    async create_Auctions(option: string): Promise<void>{
+        let createmessage;
         await test.step("Creating Auction Through Click on Create New Auction", async () =>{
             await test.step("Click On Auction Section", async () =>{
                 await this.createAuction.click();
@@ -43,14 +44,14 @@ export class CreateAuction {
             await test.step("Select Date for Allow Bidding Console Accress, Start Closing Date, Publish Date And End Date", async () =>{    
                 const yesterdayDate = new Date();
                 yesterdayDate.setDate(yesterdayDate.getDate()- 1);
-                const yesterdayDateString = yesterdayDate.toLocaleDateString('en-IN');
+                const yesterdayDateString = yesterdayDate.toISOString();
                 await this.allowBiddingConsoleAccessCheckbox.fill(yesterdayDateString);
                 console.log("Allow Bidding Console Access:", yesterdayDateString);
                
                 const currentDate =new Date();
                 const twoDaysAfter = new Date(currentDate);
                 twoDaysAfter.setDate(currentDate.getDate() + 2); 
-                const twoDaysAfterString = twoDaysAfter.toLocaleDateString('en-IN');
+                const twoDaysAfterString = twoDaysAfter.toISOString();
                 await this.startClosingFiled.fill(twoDaysAfterString);
                 console.log("Start Closing Date:", twoDaysAfterString);
 
@@ -59,7 +60,7 @@ export class CreateAuction {
 
                 const threeDaysAfter = new Date(currentDate);
                 threeDaysAfter.setDate(currentDate.getDate() + 3);
-                const threeDaysAfterString = threeDaysAfter.toLocaleDateString('en-IN');
+                const threeDaysAfterString = threeDaysAfter.toISOString();
                 await this.endDateFiled.fill(threeDaysAfterString);
                 console.log("End Date:", threeDaysAfterString);
             });         
@@ -72,9 +73,13 @@ export class CreateAuction {
                 await this.createAuctionButton.click();
                 console.log("Click On Create Auction Button");
                 await this.page.waitForLoadState();
-                const createmessage = await this.successCreateauctionmessage.innerText();
+                createmessage = await this.successCreateauctionmessage.innerText();
                 console.log("Create Auction Message:" + createmessage);
+                // expect(createmessage).toContain('Success Auction saved');
+
             });
         });
+        return createmessage;
+
     };
 };                                                                                                                                                                                                                                           

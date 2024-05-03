@@ -18,7 +18,7 @@ export class LotPage {
     static PAGE_URL: string = "admin/manage-auctions";
 
     constructor(page: Page) {
-
+        
         this.page = page;
         this.lots = this.page.locator("xpath=//a[normalize-space()='Lots']");
         this.addlots = this.page.locator("xpath=//input[@id='alf3']");
@@ -48,6 +48,7 @@ export class LotPage {
     }
 
     async add_Lots(lotCount: string,price: string): Promise<void>{
+        let savemessage;
         await test.step("In Lot Section Click On Add Lot Button For Add Lot", async ()=>{
             await test.step("Click On Lots Section", async ()=> {
                 await this.lots.click();
@@ -70,14 +71,16 @@ export class LotPage {
 
                     await this.saveandaddmore.click();
                     console.log("Click On Save And More Button");
-                    const savemessage = await this.successandmoremessage.innerText();
+                    savemessage = await this.successandmoremessage.innerText();
                     console.log("Add Lot Message:" + savemessage);
                 }
             });    
         });
+        return savemessage;
     };
 
     async add_CSV_File_In_Quick_Import(filepath1: string): Promise<void> {
+        let lotaddmessage;
         await test.step("REPORTS SECTION => LOT SECTION And quick Import Lots", async ()=>{ 
             await this.lots.click();
             await this.page.waitForLoadState();
@@ -92,12 +95,13 @@ export class LotPage {
         });
         await test.step("Click On Process To Upload", async () =>{
             await this.processuploadfile.click();
-            const lotaddmessage = await this.successmessageforlotadd.innerText();
+            lotaddmessage = await this.successmessageforlotadd.innerText();
             console.log("success message:", lotaddmessage);
         });
         await test.step("Delete CSV File In Project", async ()=>{    
             await fs.unlinkSync(filepath1);
             console.log("Delete Fill:" + filepath1);
         });
+        return lotaddmessage;
     };
 };

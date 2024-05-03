@@ -8,7 +8,7 @@ export class Loginpage{
     private siteLogoImage: Locator;
     static PAGE_URL: string= "admin/login";
 
-    constructor(public page: Page) {                                                                                                                                                                                                                                
+    constructor(public page: Page) {                                                                                                           
         this.page = page;
         this.username = this.page.locator("xpath=//input[@id='usr']");
         this.password = this.page.locator("xpath=//input[@id='pas']");
@@ -62,9 +62,11 @@ export class Loginpage{
             await test.step("User should be sucessfully logged in", async () =>{
                 await this.page.waitForLoadState();
                 console.log("User should be sucessfully logged in");
-            }); 
+            7}); 
         });           
     };
 };
 
-                                                                                                
+
+    
+    

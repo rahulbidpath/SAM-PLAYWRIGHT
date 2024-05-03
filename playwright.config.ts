@@ -6,13 +6,13 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 1 : 1,
     reporter: [['html'],
             ['monocart-reporter', {name: 'SAM Auction Results', outputFile: './reportMonocart/TestExecution.html'}],
             [
-              "allure-playwright",
+              'allure-playwright',
               {
-                outputFolder: "allure-results",
+                outputFolder: 'allure-results',
                 suiteTitle: true,
                 detail: true,
               },

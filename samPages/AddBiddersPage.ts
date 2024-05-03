@@ -71,6 +71,6 @@ export class AddBidders {
                 console.log("Verify Bidder Id:",bidder);
             });
         });           
-         return bidder;   
+         return bidder;
     };
 };
